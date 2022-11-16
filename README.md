@@ -10,7 +10,9 @@ Player have to collect heart to increse points
 <br></br>
 There will be total five levels
 <br></br>
-After Every 100 points level increses
+After 10 points Level 2 start
+<br></br>
+From level Every 100 points level increses
 
 <br></br>
 <br></br>
