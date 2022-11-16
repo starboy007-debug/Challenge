@@ -12,7 +12,7 @@ There will be total five levels
 <br></br>
 After 10 points Level 2 start
 <br></br>
-From level 2 Every 100 points level increses
+From level 2 Every 100 points level increses till level 5
 
 <br></br>
 <br></br>
