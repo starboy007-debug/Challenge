@@ -1,7 +1,6 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class Player : MonoBehaviour
 {
     private CharacterController controller;
@@ -15,6 +14,9 @@ public class Player : MonoBehaviour
  //   Animator anim;
     bool isjump = false;
     public static int coins = 0;
+
+    public int heartcnt = 3;
+    public Text hearttext;
 
     void Start()
     {
@@ -97,7 +99,7 @@ public class Player : MonoBehaviour
         if (hit.gameObject.tag == "Enemy")
         {
        //     anim.SetInteger("condition", 2);
-            StartCoroutine(Death());
+         //   StartCoroutine(Death());
         }
 
         if (hit.gameObject.tag == "Coin")
@@ -107,7 +109,28 @@ public class Player : MonoBehaviour
         }
 
     }
-    
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Enemy")
+        {
+            heartcnt--;
+            hearttext.text = ((int)heartcnt).ToString();
+            Debug.Log(heartcnt + " mkc");
+            if(heartcnt == 0)
+            {
+                StartCoroutine(Death());
+            }
+            //     anim.SetInteger("condition", 2);
+         //   StartCoroutine(Death());
+        }
+
+        if (other.tag == "Coin")
+        {
+            coins += 1;
+            Debug.Log(coins);
+        }
+    }
 
     IEnumerator Death()
     {

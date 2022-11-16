@@ -18,7 +18,6 @@ public class Score : MonoBehaviour
     public Text cointext;
     void Update()
     {
-
         if (isdeath)
             return;
         if(score > scoreTonextlevel)

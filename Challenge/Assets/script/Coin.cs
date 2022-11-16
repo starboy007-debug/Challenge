@@ -20,7 +20,7 @@ public class Coin : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("It Work!");
+      //  Debug.Log("It Work!");
      //   currentCoin++;
         currentCoin = PlayerMotor.coins;
         Destroy(this.gameObject);
