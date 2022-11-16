@@ -106,7 +106,7 @@ public class Player : MonoBehaviour
         if (hit.gameObject.tag == "Coin")
         {
             coins += 1;
-            Debug.Log(coins);
+        //    Debug.Log(coins);
         }
 
     }
@@ -118,7 +118,7 @@ public class Player : MonoBehaviour
             heartcnt--;
             hearttext.text = ((int)heartcnt).ToString();
 
-            Debug.Log(heartcnt + " mkc");
+        //    Debug.Log(heartcnt + " mkc");
             Destroy(other.gameObject);
             if(heartcnt == 0)
             {
@@ -132,7 +132,7 @@ public class Player : MonoBehaviour
         {
             coins += 1;
             
-            Debug.Log(coins);
+        //    Debug.Log(coins);
         }
     }
 
