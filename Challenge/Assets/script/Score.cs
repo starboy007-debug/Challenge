@@ -8,8 +8,8 @@ public class Score : MonoBehaviour
 {
     private float score = 0.0f;
     private int Difficultlevel = 1;
-    private int maxDifficultlevel = 10;
-    private int scoreTonextlevel = 10;
+    private int maxDifficultlevel = 5;
+    private int scoreTonextlevel = 100;
     private bool isdeath = false;
     private int coinscore;
 
@@ -20,7 +20,7 @@ public class Score : MonoBehaviour
     {
         if (isdeath)
             return;
-        if(score > scoreTonextlevel)
+        if(coinscore > scoreTonextlevel)
         {
             LevelUp();
         }
@@ -37,7 +37,7 @@ public class Score : MonoBehaviour
         if (Difficultlevel == maxDifficultlevel)
             return;
 
-        scoreTonextlevel *= 2;
+        scoreTonextlevel += 100;
         Difficultlevel++;
         GetComponent<PlayerMotor>().setspeed(Difficultlevel);
     }
@@ -45,9 +45,9 @@ public class Score : MonoBehaviour
     public void Ondeath()
     {
         isdeath = true;
-        if(PlayerPrefs.GetFloat("HighScore") < score)
-            PlayerPrefs.SetFloat("HighScore", score);
+        if(PlayerPrefs.GetFloat("HighScore") < coinscore)
+            PlayerPrefs.SetFloat("HighScore", coinscore);
 
-        deathmenu.Togglemenu(score);
+        deathmenu.Togglemenu(coinscore);
     }
 }

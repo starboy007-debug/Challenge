@@ -20,6 +20,7 @@ public class Player : MonoBehaviour
 
     void Start()
     {
+        coins = 0;
         controller = GetComponent<CharacterController>();
         Starttime = Time.time;
    //     anim = GetComponent<Animator>();
@@ -116,7 +117,9 @@ public class Player : MonoBehaviour
         {
             heartcnt--;
             hearttext.text = ((int)heartcnt).ToString();
+
             Debug.Log(heartcnt + " mkc");
+            Destroy(other.gameObject);
             if(heartcnt == 0)
             {
                 StartCoroutine(Death());
@@ -128,13 +131,14 @@ public class Player : MonoBehaviour
         if (other.tag == "Coin")
         {
             coins += 1;
+            
             Debug.Log(coins);
         }
     }
 
     IEnumerator Death()
     {
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(0.5f);
         isdead = true;
 
         GetComponent<Score>().Ondeath();
